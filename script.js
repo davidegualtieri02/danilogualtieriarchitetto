@@ -216,14 +216,17 @@ var captionText = document.getElementById("caption");
 // Aggiungi l'evento click a tutte le immagini
 document.querySelectorAll('.projects img, .interior_design img').forEach(img => {
     img.onclick = function() {
-        modal.style.display = "block";
-        // Usa un timeout per garantire che display: block venga applicato prima dell'animazione
-        setTimeout(() => {
-            modal.classList.add('show');
-        }, 10);
-        modalImg.src = this.src;
-        captionText.innerHTML = this.alt;
-        modalImg.classList.remove('zoomed'); // Assicurati che l'immagine non abbia la classe zoomed all'apertura
+        // Controlla se la larghezza dello schermo è maggiore di 1285px
+        if (window.innerWidth > 1285) { // Modifica 1285px secondo le tue necessità
+            modal.style.display = "block";
+            // Usa un timeout per garantire che display: block venga applicato prima dell'animazione
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+            modalImg.classList.remove('zoomed'); // Assicurati che l'immagine non abbia la classe zoomed all'apertura
+        }
     }
 });
 
@@ -249,6 +252,7 @@ window.onclick = function(event) {
         }, 500); // Tempo per completare l'animazione
     }
 }
+
 
 
 //SE DA MOBILE IN ORIZZONTALE:

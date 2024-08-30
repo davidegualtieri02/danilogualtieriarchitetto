@@ -998,6 +998,13 @@ input[type=number]::-ms-reveal {
     z-index: 1000;
   }
   
+
+
+  @media only screen and (max-width: 1285px){
+    .modal{
+        display: none;
+    }
+  }
   
 @media(max-width:1285px){
     html{
