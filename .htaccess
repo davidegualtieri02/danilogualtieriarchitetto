@@ -1,3 +1,6 @@
 RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Reindirizza tutto il traffico HTTP a HTTPS e forza l'uso di www
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^www\.danilogualtieriarchitetto\.it$ [NC]
+RewriteRule ^(.*)$ https://www.danilogualtieriarchitetto.it/$1 [L,R=301]
